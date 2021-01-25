@@ -1,0 +1,12 @@
+C:\Users\Berry\Desktop\Wallet\WalletLib\bin\Debug\netcoreapp3.1\WalletLib.deps.json
+C:\Users\Berry\Desktop\Wallet\WalletLib\bin\Debug\netcoreapp3.1\WalletLib.runtimeconfig.json
+C:\Users\Berry\Desktop\Wallet\WalletLib\bin\Debug\netcoreapp3.1\WalletLib.runtimeconfig.dev.json
+C:\Users\Berry\Desktop\Wallet\WalletLib\bin\Debug\netcoreapp3.1\WalletLib.dll
+C:\Users\Berry\Desktop\Wallet\WalletLib\bin\Debug\netcoreapp3.1\WalletLib.pdb
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.csprojAssemblyReference.cache
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.AssemblyInfoInputs.cache
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.AssemblyInfo.cs
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.csproj.CoreCompileInputs.cache
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.dll
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.pdb
+C:\Users\Berry\Desktop\Wallet\WalletLib\obj\Debug\netcoreapp3.1\WalletLib.genruntimeconfig.cache

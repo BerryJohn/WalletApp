@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using WalletDB.ScaffoldModels;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace WalletAPP
 {
@@ -18,9 +17,16 @@ namespace WalletAPP
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             using var db = new Wallet();
-            IQueryable<User> users = db.Users.Where(u => u.Id == 1);
+            IQueryable<User> users = db.Users;
+            lista.Items.Clear();
             foreach (var user in users)
-                tekst.Content = user.Nickname;
+                lista.Items.Add($"{user.Nickname}-{user.Money}PLN");
+        }
+
+        private void lista_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            string curItem = lista.SelectedItem.ToString();
+            tekst.Content = curItem;
         }
     }
 }

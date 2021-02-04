@@ -7,8 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="tekst" Content="Label" HorizontalAlignment="Left" Margin="216,66,0,0" VerticalAlignment="Top" Height="75" Width="307"/>
-        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="258,217,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
+        <Label x:Name="tekst" Content="Label" HorizontalAlignment="Left" Margin="33,32,0,0" VerticalAlignment="Top" Height="75" Width="307" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.267"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="59,296,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
+        <ListBox x:Name="lista" Margin="461,72,66,71" SelectionChanged="lista_SelectionChanged"/>
 
     </Grid>
 </Window>

@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WalletAPP"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="tekst" Content="Label" HorizontalAlignment="Left" Margin="33,32,0,0" VerticalAlignment="Top" Height="75" Width="307" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="tekst" Content="Select user" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="45" Width="113" RenderTransformOrigin="0.5,0.5" FontSize="20">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -17,8 +18,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="59,296,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
-        <ListBox x:Name="lista" Margin="461,72,66,71" SelectionChanged="lista_SelectionChanged"/>
-
+        <Button x:Name="btn_add_user" Content="Button" HorizontalAlignment="Left" Margin="536,118,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
+        <ListBox x:Name="lista" Margin="10,49,587,248" SelectionChanged="lista_SelectionChanged" Background="LightGray"/>
+        <Label x:Name="currUser" Content="Label" Margin="10,229,587,71" FontSize="30"/>
+        <TextBox x:Name="new_user_nick" Text="TextBox" TextWrapping="Wrap" Margin="536,49,108,336"/>
     </Grid>
 </Window>

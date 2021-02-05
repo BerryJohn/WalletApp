@@ -42,5 +42,10 @@ namespace WalletAPP
             int succes = db.SaveChanges();
             UpdateUserList();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Login.Content = new Page1();
+        }
     }
 }

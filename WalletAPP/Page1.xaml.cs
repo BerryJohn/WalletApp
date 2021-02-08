@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using WalletDB.ScaffoldModels;
 using Microsoft.EntityFrameworkCore;
+using WalletGlobal;
 
 namespace WalletAPP
 {
@@ -23,7 +24,7 @@ namespace WalletAPP
         {
             IncomeList.Items.Clear();
             using var db = new Wallet();
-            IQueryable<Incom> Incoms = db.Incoms;
+            IQueryable<Incom> Incoms = db.Incoms.Where(el => el.UserId == GLOBALS.CurrentUserID);
             foreach (var incom in Incoms)
                 IncomeList.Items.Add($"+{incom.Income}PLN  Category: {findCategory(incom.CategoryId)}"); 
         }
@@ -64,8 +65,7 @@ namespace WalletAPP
             var newIncom = new Incom();
             newIncom.Income = amount;
             newIncom.CategoryId = findCategoryID(category);
-            newIncom.UserId = 1; 
-#warning TODO user selection now working only for first user
+            newIncom.UserId = GLOBALS.CurrentUserID; 
             db.Incoms.Add(newIncom);
             int succes = db.SaveChanges();
             UpdateUserList();

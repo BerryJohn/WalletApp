@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using WalletDB.ScaffoldModels;
 using Microsoft.EntityFrameworkCore;
+using WalletGlobal;
 
 namespace WalletAPP
 {
@@ -15,7 +16,7 @@ namespace WalletAPP
             using var db = new Wallet();
             IQueryable<User> users = db.Users;
             foreach (var user in users)
-                lista.Items.Add($"{user.Nickname}-{user.Money}PLN");
+                lista.Items.Add($"{user.Id} - {user.Nickname} - {user.Money}PLN");
         }
         public MainWindow()
         {
@@ -28,7 +29,9 @@ namespace WalletAPP
         private void lista_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             string[] curItem = lista.SelectedItem.ToString().Split('-');
-            currUser.Content = curItem[0];
+            currUser.Content = curItem[1];
+            GLOBALS.CurrentUserID = long.Parse(curItem[0]);
+            GLOBALS.CurrentUserName = curItem[1];
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)

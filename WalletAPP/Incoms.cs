@@ -8,9 +8,6 @@ using WalletGlobal;
 
 namespace WalletAPP
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
     public partial class Incoms : Page
     {
         private string findCategory(long id)
@@ -19,7 +16,7 @@ namespace WalletAPP
             IQueryable<IncomeCategory> category = db.IncomeCategories.Where(el => el.Id == id);
             return category.First().Category;
         }
-        private void UpdateUserList()
+        private void updateIncomsList()
         {
             IncomeList.Items.Clear();
             using var db = new Wallet();
@@ -27,7 +24,7 @@ namespace WalletAPP
             foreach (var incom in Incoms)
                 IncomeList.Items.Add($"+{incom.Income}PLN  Category: {findCategory(incom.CategoryId)}"); 
         }
-        private void UpdateCategoryList()
+        private void updateCategoryList()
         {
             incomeFormCategories.Items.Clear();
             using var db = new Wallet();
@@ -38,8 +35,8 @@ namespace WalletAPP
         public Incoms()
         {
             InitializeComponent();
-            UpdateUserList();
-            UpdateCategoryList();
+            updateIncomsList();
+            updateCategoryList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -67,7 +64,7 @@ namespace WalletAPP
             newIncom.UserId = GLOBALS.CurrentUserID; 
             db.Incoms.Add(newIncom);
             int succes = db.SaveChanges();
-            UpdateUserList();
+            updateIncomsList();
             return succes;
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)

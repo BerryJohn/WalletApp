@@ -11,11 +11,11 @@
     <Grid Background="#FFFF7373">
         <Button Content="Choose user" Margin="649,371,10,10" Click="Button_Click"/>
         <Label Content="Your incoms:" Margin="10,10,639,398" FontSize="22"/>
-        <ListBox x:Name="IncomeList" Margin="10,57,438,136"/>
+        <ListBox x:Name="IncomeList" Margin="10,57,438,136" Width="360" MaxWidth="360" Height="260" MaxHeight="260"/>
         <Label Content="Add income:&#xD;&#xA;" HorizontalAlignment="Left" Height="44" Margin="477,13,0,0" VerticalAlignment="Top" Width="193" FontSize="22"/>
         <TextBox x:Name="incomeFormValue" HorizontalAlignment="Left" Margin="477,57,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="35" FontSize="22"/>
-        <ListBox x:Name="incomeFormCategories" HorizontalAlignment="Left" Height="148" Margin="477,107,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="incomeFormCategories_SelectionChanged"/>
-        <Button Content="Add money&#xD;&#xA;" Margin="518,266,120,136" FontSize="22" Click="Button_Click_1"/>
+        <ListBox x:Name="incomeFormCategories" HorizontalAlignment="Left" Height="140" Margin="477,107,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="incomeFormCategories_SelectionChanged" ScrollViewer.CanContentScroll="True" MaxHeight="150"/>
+        <Button Content="Add money" Margin="518,263,120,133" FontSize="22" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

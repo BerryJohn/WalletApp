@@ -22,6 +22,7 @@
         <ListBox x:Name="lista" Margin="10,49,587,248" SelectionChanged="lista_SelectionChanged" Background="LightGray"/>
         <Label x:Name="currUser" Content="Label" Margin="10,229,587,71" FontSize="30"/>
         <TextBox x:Name="new_user_nick" Text="TextBox" TextWrapping="Wrap" Margin="536,49,108,336"/>
-        <Button Content="Wallet Page" HorizontalAlignment="Left" Height="80" Margin="622,318,0,0" VerticalAlignment="Top" Width="142" Click="Button_Click"/>
+        <Button Content="Check Incoms" HorizontalAlignment="Left" Height="80" Margin="622,318,0,0" VerticalAlignment="Top" Width="142" Click="Button_Click"/>
+        <Button Content="Button" Margin="472,318,186,36"/>
     </Grid>
 </Window>

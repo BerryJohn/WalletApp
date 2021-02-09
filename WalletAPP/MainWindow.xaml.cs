@@ -24,8 +24,6 @@ namespace WalletAPP
             UpdateUserList();
         }
 
-
-
         private void lista_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             string[] curItem = lista.SelectedItem.ToString().Split('-');
@@ -48,7 +46,12 @@ namespace WalletAPP
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Login.Content = new Page1();
+            Login.Content = new Incoms();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Login.Content = new Outgoings();
         }
     }
 }

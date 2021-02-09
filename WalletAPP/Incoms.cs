@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace WalletAPP
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class Incoms : Page
     {
         private string findCategory(long id)
         {
@@ -36,7 +35,7 @@ namespace WalletAPP
             foreach (var category in categories)
                 incomeFormCategories.Items.Add($"{category.Category}"); 
         }
-        public Page1()
+        public Incoms()
         {
             InitializeComponent();
             UpdateUserList();

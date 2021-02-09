@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Berry\Desktop\WalletAPP\WalletAPP\App.xaml
-31745876345
+3-582962009
 1-1076974482
-14-667282513
+14620275632
 2131482486012
-MainWindow.xaml;outgoings.xaml;Page1.xaml;
+Incoms.xaml;MainWindow.xaml;Outgoings.xaml;
 
-False
+True
 

@@ -10,6 +10,16 @@ namespace WalletAPP
 {
     public partial class Incoms : Page
     {
+        private void countIncomes()
+        {
+            long totalIncome = 0;
+            using var db = new Wallet();
+            IQueryable<Incom> Incoms = db.Incoms.Where(el => el.UserId == GLOBALS.CurrentUserID);
+            foreach (var el in Incoms)
+                totalIncome += el.Income;
+
+            totalIncomeLabel.Content = $"+{totalIncome}PLN";
+        }
         private string findCategory(long id)
         {
             using var db = new Wallet();
@@ -22,7 +32,8 @@ namespace WalletAPP
             using var db = new Wallet();
             IQueryable<Incom> Incoms = db.Incoms.Where(el => el.UserId == GLOBALS.CurrentUserID);
             foreach (var incom in Incoms)
-                IncomeList.Items.Add($"+{incom.Income}PLN  Category: {findCategory(incom.CategoryId)}"); 
+                IncomeList.Items.Add($"+{incom.Income}PLN  Category: {findCategory(incom.CategoryId)}");
+            countIncomes();
         }
         private void updateCategoryList()
         {
@@ -37,6 +48,7 @@ namespace WalletAPP
             InitializeComponent();
             updateIncomsList();
             updateCategoryList();
+            countIncomes();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

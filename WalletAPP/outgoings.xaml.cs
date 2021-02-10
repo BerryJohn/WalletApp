@@ -10,6 +10,16 @@ namespace WalletAPP
 {
     public partial class Outgoings : Page
     {
+        private void countOutgoings()
+        {
+            long totalOutgoing = 0;
+            using var db = new Wallet();
+            IQueryable<Outgoing> outgoin = db.Outgoings.Where(el => el.UserId == GLOBALS.CurrentUserID);
+            foreach (var el in outgoin)
+                totalOutgoing += el.Outcome;
+
+            totalOutgoingLabel.Content = $"-{totalOutgoing}PLN";
+        }
         private string findCategory(long id)
         {
             using var db = new Wallet();
@@ -42,6 +52,7 @@ namespace WalletAPP
             db.Outgoings.Add(newOutgoing);
             int succes = db.SaveChanges();
             updateOutgoingsList();
+            countOutgoings();
             return succes;
         }
 
@@ -58,6 +69,7 @@ namespace WalletAPP
             InitializeComponent();
             updateOutgoingsList();
             updateCategoryList();
+            countOutgoings();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

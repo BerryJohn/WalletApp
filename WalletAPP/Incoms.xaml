@@ -10,7 +10,7 @@
 
     <Grid Background="#FFFF7373" Height="380">
         <Button Content="Choose user" Margin="649,371,10,10" Click="Button_Click"/>
-        <Label Content="Your incoms:" Margin="10,10,639,398" FontSize="22"/>
+        <Label Content="Your incoms:" Margin="10,10,639,328" FontSize="22"/>
         <ListBox x:Name="IncomeList" Margin="10,57,430,133" Width="360" MaxWidth="360" Height="260" MaxHeight="260"/>
         <Label Content="Add income:&#xD;&#xA;" HorizontalAlignment="Left" Height="44" Margin="477,10,0,0" VerticalAlignment="Top" Width="193" FontSize="22"/>
         <TextBox x:Name="incomeFormValue" HorizontalAlignment="Left" Margin="478,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="35" FontSize="22"/>

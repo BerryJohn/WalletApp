@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Berry\Desktop\WalletAPP\WalletAPP\obj\Debug\net5.0-windows\
+C:\Users\Berry\Desktop\WalletApp\WalletAPP\obj\Debug\net5.0-windows\
 WalletAPP
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Berry\Desktop\WalletAPP\WalletAPP\App.xaml
-4-1045413920
+C:\Users\Berry\Desktop\WalletApp\WalletAPP\App.xaml
+554236734
 1-1076974482
-15695885940
+16-1830707763
 2131482486012
-Incoms.xaml;MainWindow.xaml;Outgoings.xaml;UserChoice.xaml;
+Categories.xaml;Incoms.xaml;MainWindow.xaml;outgoings.xaml;UserChoice.xaml;
 
-True
+False
 

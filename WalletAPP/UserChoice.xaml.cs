@@ -20,7 +20,7 @@ namespace WalletAPP
             using var db = new Wallet();
             IQueryable<User> users = db.Users;
             foreach (var user in users)
-                lista.Items.Add($"{user.Id} - {user.Nickname} - {user.Money}PLN");
+                lista.Items.Add($"{user.Id} - {user.Nickname}");
         }
 
         private void lista_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

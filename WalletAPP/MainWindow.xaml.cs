@@ -10,9 +10,10 @@ namespace WalletAPP
 {
     public partial class MainWindow : Window
     {
+        private Outgoings _outgoings = new Outgoings();
         private Incoms _incomsPage = new Incoms();
         private UserChoice _userChoice = new UserChoice();
-        private Outgoings _outgoings = new Outgoings();
+        private Categories _categories = new Categories();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,10 +35,9 @@ namespace WalletAPP
         {
             PageNavigation.Navigate(_userChoice);
         }
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Categories(object sender, RoutedEventArgs e)
         {
-            //PageNavigation.Navigate(_incomsPage);  TBA
+            PageNavigation.Navigate(_categories);
         }
-
     }
 }

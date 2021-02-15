@@ -10,13 +10,13 @@
 
     <Grid Background="#FF3461C1" Height="380" MaxHeight="380">
         <Label Content="Your outgoings:" HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="176" FontSize="22"/>
-        <ListBox x:Name="OutgoingsList" Margin="10,57,430,133" Width="360" Height="260" MinWidth="260" MinHeight="260"/>
+        <ListBox x:Name="OutgoingsList" Margin="10,57,430,133" Width="360" MinWidth="260" MinHeight="260" MaxHeight="260"/>
         <Label Content="Add outgoing:" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" FontSize="22"/>
         <TextBox x:Name="outgoingFormValue" HorizontalAlignment="Left" Margin="478,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="35" FontSize="22"/>
         <ListBox x:Name="outgoingFormCategories" HorizontalAlignment="Left" Height="140" Margin="477,107,0,0" VerticalAlignment="Top" Width="243" ScrollViewer.CanContentScroll="True" MaxHeight="150"/>
         <Button Content="Add outgoing" Margin="518,263,120,83" FontSize="22" Click="Button_Click"/>
         <Label Content="Total outgoings:" HorizontalAlignment="Left" Height="34" Margin="10,263,0,0" VerticalAlignment="Top" Width="142" FontSize="18"/>
         <Label x:Name="totalOutgoingLabel" Content="" HorizontalAlignment="Left" Height="57" Margin="10,302,0,0" VerticalAlignment="Top" Width="225" FontSize="30" Background="Transparent" Foreground="#FFA22F2F"/>
-
+        <Button x:Name="removeOutgoing" Content="Remove &#xD;&#xA;selected" HorizontalAlignment="Left" Height="44" Margin="270,258,0,0" VerticalAlignment="Top" Width="100" FontSize="16" Click="removeOutgoing_Click"/>
     </Grid>
 </Page>

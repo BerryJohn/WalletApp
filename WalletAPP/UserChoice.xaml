@@ -20,8 +20,9 @@
             </Label.RenderTransform>
         </Label>
         <Button x:Name="btn_add_user" Content="Button" HorizontalAlignment="Left" Margin="536,225,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
-        <ListBox x:Name="lista" Margin="10,49,571,190" SelectionChanged="lista_SelectionChanged" Background="LightGray" Height="140" MaxHeight="140"/>
+        <ListBox x:Name="userList" Margin="10,49,571,190" SelectionChanged="userList_SelectionChanged" Background="LightGray" Height="140" MaxHeight="140"/>
         <Label x:Name="currUser" Content="" Margin="10,229,532,107" FontSize="30"/>
         <TextBox x:Name="new_user_nick" Text="TextBox" TextWrapping="Wrap" Margin="536,125,108,190"/>
+        <Button x:Name="removeUser" Content="Remove User" Margin="62,208,624,129" Click="removeUser_Click"/>
     </Grid>
 </Page>

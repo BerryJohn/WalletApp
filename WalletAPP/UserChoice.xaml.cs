@@ -16,20 +16,13 @@ namespace WalletAPP
     {
         private void UpdateUserList()
         {
-            lista.Items.Clear();
+            userList.Items.Clear();
             using var db = new Wallet();
             IQueryable<User> users = db.Users;
             foreach (var user in users)
-                lista.Items.Add($"{user.Id} - {user.Nickname}");
+                userList.Items.Add($"{user.Id}-{user.Nickname}");
         }
 
-        private void lista_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            string[] curItem = lista.SelectedItem.ToString().Split('-');
-            currUser.Content = curItem[1];
-            GLOBALS.CurrentUserID = long.Parse(curItem[0]);
-            GLOBALS.CurrentUserName = curItem[1];
-        }
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             using var db = new Wallet();
@@ -45,6 +38,31 @@ namespace WalletAPP
         {
             InitializeComponent();
             UpdateUserList();
+        }
+
+        private void removeUser_Click(object sender, RoutedEventArgs e)
+        {
+            using var db = new Wallet();
+            string selected = userList.SelectedItem.ToString().Split('-')[1];
+            IQueryable<User> userToRemove = db.Users.Where(el => el.Nickname == selected);
+            db.Users.RemoveRange(userToRemove);
+            int result = db.SaveChanges();
+            UpdateUserList();
+        }
+
+        private void userList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string[] curItem = userList.SelectedItem.ToString().Split('-');
+                currUser.Content = curItem[1];
+                GLOBALS.CurrentUserID = long.Parse(curItem[0]);
+                GLOBALS.CurrentUserName = curItem[1];
+            }
+            catch
+            {
+
+            }
         }
     }
 }

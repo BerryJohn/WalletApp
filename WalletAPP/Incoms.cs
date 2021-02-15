@@ -32,7 +32,7 @@ namespace WalletAPP
             using var db = new Wallet();
             IQueryable<Incom> Incoms = db.Incoms.Where(el => el.UserId == GLOBALS.CurrentUserID);
             foreach (var incom in Incoms)
-                IncomeList.Items.Add($"+{incom.Income}PLN  Category: {findCategory(incom.CategoryId)}");
+                IncomeList.Items.Add($"{incom.Id}: +{incom.Income}PLN  Category: {findCategory(incom.CategoryId)}");
             countIncomes();
         }
         private void updateCategoryList()
@@ -85,6 +85,15 @@ namespace WalletAPP
             {
                 addCategory(res, category);
             }
+        }
+        private void removeIncome_Click(object sender, RoutedEventArgs e)
+        {
+            using var db = new Wallet();
+            long selected = long.Parse(IncomeList.SelectedItem.ToString().Split(':')[0]);
+            IQueryable<Incom> incomeToRemove = db.Incoms.Where(el => el.Id == selected);
+            db.Incoms.RemoveRange(incomeToRemove);
+            int result = db.SaveChanges();
+            updateIncomsList();
         }
     }
 }

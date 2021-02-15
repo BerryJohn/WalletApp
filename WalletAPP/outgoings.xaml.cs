@@ -32,8 +32,9 @@ namespace WalletAPP
             using var db = new Wallet();
             IQueryable<Outgoing> outgoin = db.Outgoings.Where(el => el.UserId == GLOBALS.CurrentUserID);
             foreach (var outgo in outgoin)
-                OutgoingsList.Items.Add($"-{outgo.Outcome}PLN  Category: {findCategory(outgo.CategoryId)}");
+                OutgoingsList.Items.Add($"{outgo.Id}: -{outgo.Outcome}PLN  Category: {findCategory(outgo.CategoryId)}");
 #warning Zmień literówke w gazie i tutaj ( OUTCOME -> outgoing)
+            countOutgoings();
         }
         private long findCategoryID(string category)
         {
@@ -88,6 +89,16 @@ namespace WalletAPP
             {
                 addCategory(res, category);
             }
+        }
+
+        private void removeOutgoing_Click(object sender, RoutedEventArgs e)
+        {
+            using var db = new Wallet();
+            long selected = long.Parse(OutgoingsList.SelectedItem.ToString().Split(':')[0]);
+            IQueryable<Outgoing> outgoingToRemove = db.Outgoings.Where(el => el.Id == selected);
+            db.Outgoings.RemoveRange(outgoingToRemove);
+            int result = db.SaveChanges();
+            updateOutgoingsList();
         }
     }
 }

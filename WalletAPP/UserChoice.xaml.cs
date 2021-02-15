@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using WalletDB.ScaffoldModels;
 using Microsoft.EntityFrameworkCore;
 using WalletGlobal;
+using System.Windows.Media;
 
 namespace WalletAPP
 {
@@ -37,6 +38,12 @@ namespace WalletAPP
 
                 long balance = totalIncome - totalOutgoing;
                 userBalance.Content = $"{balance}PLN";
+                Color color;
+                if(balance >= 0)
+                    color = (Color)ColorConverter.ConvertFromString("#FF548D33");
+                else
+                    color =  (Color)ColorConverter.ConvertFromString("#FFA22F2F");
+                userBalance.Foreground = new System.Windows.Media.SolidColorBrush(color);
             }
             else
             {

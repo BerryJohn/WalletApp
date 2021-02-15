@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Berry\\Desktop\\WalletApp\\WalletAPP\\WalletAPP.csproj": {}
+    "C:\\Users\\Berry\\Desktop\\WalletAPP\\WalletAPP\\WalletAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Berry\\Desktop\\WalletApp\\WalletAPP\\WalletAPP.csproj": {
+    "C:\\Users\\Berry\\Desktop\\WalletAPP\\WalletAPP\\WalletAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Berry\\Desktop\\WalletApp\\WalletAPP\\WalletAPP.csproj",
+        "projectUniqueName": "C:\\Users\\Berry\\Desktop\\WalletAPP\\WalletAPP\\WalletAPP.csproj",
         "projectName": "WalletAPP",
-        "projectPath": "C:\\Users\\Berry\\Desktop\\WalletApp\\WalletAPP\\WalletAPP.csproj",
+        "projectPath": "C:\\Users\\Berry\\Desktop\\WalletAPP\\WalletAPP\\WalletAPP.csproj",
         "packagesPath": "C:\\Users\\Berry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Berry\\Desktop\\WalletApp\\WalletAPP\\obj\\",
+        "outputPath": "C:\\Users\\Berry\\Desktop\\WalletAPP\\WalletAPP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Berry\\AppData\\Roaming\\NuGet\\NuGet.Config",

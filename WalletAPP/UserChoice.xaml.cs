@@ -25,16 +25,29 @@ namespace WalletAPP
 
         private void addUserButton(object sender, RoutedEventArgs e)
         {
-            if(newUserNick.Text != "")
+            try
             {
-                using var db = new Wallet();
-                var newUser = new User();
-                newUser.Nickname = newUserNick.Text;
-                newUser.Money = 0;
-                db.Users.Add(newUser);
-                int succes = db.SaveChanges();
-                UpdateUserList();
+                if(newUserNick.Text.Trim() != "")
+                {
+                    using var db = new Wallet();
+                    var newUser = new User();
+                    newUser.Nickname = newUserNick.Text.Trim();
+                    newUser.Money = 0;
+                    db.Users.Add(newUser);
+                    int succes = db.SaveChanges();
+                    if (!string.IsNullOrEmpty(userErrorLabel.Content.ToString()))
+                        userErrorLabel.Content = "";
+                    UpdateUserList();
+                }
             }
+            catch(Exception ex)
+            {
+                if(ex is Microsoft.EntityFrameworkCore.DbUpdateException)
+                {
+                    userErrorLabel.Content = "Name is already used!";
+                }
+            }
+
         }
         public UserChoice()
         {

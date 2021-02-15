@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using WalletDB.ScaffoldModels;
 using Microsoft.EntityFrameworkCore;
 using WalletGlobal;
+using System;
 
 namespace WalletAPP
 {
@@ -62,26 +63,46 @@ namespace WalletAPP
         }
         private void addIncomeCat(string cat)
         {
-            if (!string.IsNullOrEmpty(cat))
+            try
             {
-                using var db = new Wallet();
-                var newCategory = new IncomeCategory();
-                newCategory.Category = cat;
-                db.IncomeCategories.Add(newCategory);
-                int succes = db.SaveChanges();
-                updateIncomeCategory();
+                if (!string.IsNullOrEmpty(cat))
+                {
+                    using var db = new Wallet();
+                    var newCategory = new IncomeCategory();
+                    newCategory.Category = cat;
+                    db.IncomeCategories.Add(newCategory);
+                    int succes = db.SaveChanges();
+                    if (!string.IsNullOrEmpty(addCategoryError.Content.ToString()))
+                        addCategoryError.Content = "";
+                    updateIncomeCategory();
+                }
+            }
+            catch(Exception ex)
+            {
+                if (ex is Microsoft.EntityFrameworkCore.DbUpdateException)
+                    addCategoryError.Content = "That name is already used!";
             }
         }
         private void addOutgoingCat(string cat)
         {
-            if(!string.IsNullOrEmpty(cat))
+            try
             {
-                using var db = new Wallet();
-                var newCategory = new OutgoingsCategory();
-                newCategory.Category = cat;
-                db.OutgoingsCategories.Add(newCategory);
-                int succes = db.SaveChanges();
-                updateOutgoingCategory();
+                if (!string.IsNullOrEmpty(cat))
+                {
+                    using var db = new Wallet();
+                    var newCategory = new OutgoingsCategory();
+                    newCategory.Category = cat;
+                    db.OutgoingsCategories.Add(newCategory);
+                    int succes = db.SaveChanges();
+                    if (!string.IsNullOrEmpty(addCategoryError.Content.ToString()))
+                        addCategoryError.Content = "";
+                    updateOutgoingCategory();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex is Microsoft.EntityFrameworkCore.DbUpdateException)
+                    addCategoryError.Content = "That name is already used!";
             }
 
         }

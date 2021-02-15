@@ -8,16 +8,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
 
-    <Grid Background="#FFFF7373" Height="380">
-        <Label Content="Your incoms:" Margin="10,10,639,328" FontSize="22"/>
-        <ListBox x:Name="IncomeList" Margin="10,57,430,133" Width="360" MaxWidth="360" MaxHeight="260"/>
-        <Label Content="Add income:&#xD;&#xA;" HorizontalAlignment="Left" Height="44" Margin="477,10,0,0" VerticalAlignment="Top" Width="193" FontSize="22"/>
-        <TextBox x:Name="incomeFormValue" HorizontalAlignment="Left" Margin="478,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="35" FontSize="22"/>
-        <ListBox x:Name="incomeFormCategories" HorizontalAlignment="Left" Height="140" Margin="477,107,0,0" VerticalAlignment="Top" Width="243" ScrollViewer.CanContentScroll="True" MaxHeight="150"/>
-        <Button Content="Add money" Margin="518,263,120,86" FontSize="22" Click="addIncome_Click"/>
-        <Label Content="Total income:"  HorizontalAlignment="Left" Height="34" Margin="10,263,0,0" VerticalAlignment="Top" Width="121" FontSize="18"/>
-        <Label x:Name="totalIncomeLabel" Content="" HorizontalAlignment="Left" Height="57" Margin="10,302,0,0" VerticalAlignment="Top" Width="225" FontSize="30" Background="Transparent" Foreground="#FF548D33"/>
-        <Button x:Name="removeIncome" Content="Remove &#xD;&#xA;selected" HorizontalAlignment="Left" Height="44" Margin="270,258,0,0" VerticalAlignment="Top" Width="100" FontSize="16" Click="removeIncome_Click"/>
+    <Grid Background="#FF200E34" Height="380">
+        <Label Content="Your incomes:" Margin="14,10,517,323" FontSize="36" Foreground="#FFEEEEEE" FontFamily="Bahnschrift"/>
+        <ListBox x:Name="IncomeList" Margin="14,57,426,133" Width="360" MaxWidth="360" MaxHeight="260" Background="#FF31154F" BorderBrush="{x:Null}" Foreground="#FFEEEEEE" FontFamily="Bahnschrift"/>
+        <Label Content="Add income:&#xD;&#xA;" HorizontalAlignment="Left" Height="42" Margin="495,22,0,0" VerticalAlignment="Top" Width="157" FontSize="24" Foreground="#FFEEEEEE" FontFamily="Bahnschrift"/>
+        <TextBox x:Name="incomeFormValue" HorizontalAlignment="Left" Margin="495,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="35" FontSize="22" Background="#FF31154F" BorderBrush="{x:Null}" Foreground="#FFEEEEEE" SelectionBrush="#FFC5269A"/>
+        <ListBox x:Name="incomeFormCategories" HorizontalAlignment="Left" Height="140" Margin="495,117,0,0" VerticalAlignment="Top" Width="243" ScrollViewer.CanContentScroll="True" MaxHeight="150" Background="#FF31154F" BorderBrush="{x:Null}" Foreground="#FFEEEEEE"/>
+        <Button Content="Add money" Margin="535,266,103,78" FontSize="22" Click="addIncome_Click" FontFamily="Bahnschrift Condensed" BorderBrush="{x:Null}" Background="#FF31154F" Foreground="#FF795591" Width="162" Height="39" VerticalAlignment="Center"/>
+        <Label Content="Total income:"  HorizontalAlignment="Left" Height="34" Margin="14,266,0,0" VerticalAlignment="Top" Width="139" FontSize="20" Foreground="#FFEEEEEE" FontFamily="Bahnschrift"/>
+        <Label x:Name="totalIncomeLabel" Content="" HorizontalAlignment="Left" Height="57" Margin="14,297,0,0" VerticalAlignment="Top" Width="225" FontSize="30" Background="Transparent" Foreground="#FF548D33" FontFamily="Bahnschrift"/>
+        <Button x:Name="removeIncome" Content="Remove selected" HorizontalAlignment="Left" Height="39" Margin="239,263,0,0" VerticalAlignment="Top" Width="131" FontSize="20" Click="removeIncome_Click" FontFamily="Bahnschrift Condensed" HorizontalContentAlignment="Center" Background="#FF31154F" BorderBrush="{x:Null}" Foreground="#FF795591"/>
+        <Rectangle HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="4" Fill="#FF31154F" Margin="427,0,0,0"/>
 
     </Grid>
 </Page>

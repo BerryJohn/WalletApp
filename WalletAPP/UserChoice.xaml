@@ -8,8 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserChoice">
 
-    <Grid Background="#FF4D178F" Margin="0,10,0,0" Height="380">
-        <Label x:Name="tekst" Content="Select user" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="45" Width="113" RenderTransformOrigin="0.5,0.5" FontSize="20">
+    <Grid Background="#FF200E34" Margin="0,10,0,0" Height="380" MaxHeight="380">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="tekst" Content="Select user" HorizontalAlignment="Left" Margin="119,5,0,0" VerticalAlignment="Top" Height="37" Width="134" RenderTransformOrigin="0.5,0.5" FontSize="24" Foreground="#FFEEEEEE" FontFamily="Bahnschrift">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,10 +23,13 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="addUser" Content="Add user" HorizontalAlignment="Left" Margin="536,225,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="addUserButton"/>
-        <ListBox x:Name="userList" Margin="10,49,571,190" SelectionChanged="userList_SelectionChanged" Background="LightGray" Height="140" MaxHeight="140"/>
-        <Label x:Name="currUser" Content="" Margin="10,229,532,107" FontSize="30"/>
-        <TextBox x:Name="newUserNick" TextWrapping="Wrap" Margin="536,120,108,196"/>
-        <Button x:Name="removeUser" Content="Remove User" Margin="62,208,624,129" Click="removeUser_Click"/>
+        <Button x:Name="addUser" Content="Add user" Click="addUserButton" HorizontalAlignment="Left" Margin="530,137,0,93" BorderBrush="{x:Null}" Foreground="#FF795591" FontSize="20" FontFamily="Bahnschrift Condensed" Background="#FF31154F" FontWeight="Bold" Width="140" Grid.Row="1"/>
+        <ListBox x:Name="userList" Margin="49,50,451,190" SelectionChanged="userList_SelectionChanged" Background="#FF31154F" Height="140" MaxHeight="140" BorderBrush="{x:Null}" Foreground="#FFEEEEEE" Grid.RowSpan="2" Width="300"/>
+        <Label x:Name="currUser" Content="" Margin="49,117,0,0" FontSize="30" Grid.Row="1" Foreground="#FFD8D8D8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="newUserNick" TextWrapping="Wrap" Margin="450,96,0,134" HorizontalAlignment="Left" Width="300" Height="30" Background="#FF31154F" BorderBrush="{x:Null}" Foreground="#FFEEEEEE" SelectionBrush="#FFC5269A" SelectionTextBrush="{x:Null}" FontSize="20" Grid.Row="1"/>
+        <Button x:Name="removeUser" Content="Remove user" Margin="142,79,544,148" Click="removeUser_Click" BorderBrush="{x:Null}" Foreground="#FF795591" FontSize="20" FontFamily="Bahnschrift Condensed" Background="#FF31154F" FontWeight="Bold" Grid.Row="1"/>
+        <Label x:Name="userErrorLabel" Content="" HorizontalAlignment="Left" Height="39" Margin="415,180,0,0" VerticalAlignment="Top" Width="369" FontSize="20" Background="{x:Null}" Grid.Row="1" Foreground="#FFC5269A" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Rectangle HorizontalAlignment="Center" Height="380" Grid.RowSpan="2" VerticalAlignment="Top" Width="4" Fill="#FF31154F"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="450,70,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Foreground="#FFEEEEEE" FontFamily="Bahnschrift" FontSize="20"><Run Language="pl-pl" Text="Nickname"/></TextBlock>
     </Grid>
 </Page>

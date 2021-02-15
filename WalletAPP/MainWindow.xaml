@@ -7,13 +7,25 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FF200E34">
         <Frame Name="PageNavigation" Grid.Column="0" NavigationUIVisibility="Hidden" Margin="0,51,0,0" Height="380" MaxHeight="380"/>
-        <Button Content="Incomes" HorizontalAlignment="Left" Height="46" Margin="331,1,0,0" VerticalAlignment="Top" Width="111" Click="Button_Incomes"/>
-        <Button Content="Users" HorizontalAlignment="Left" Height="46" Margin="679,2,0,0" VerticalAlignment="Top" Width="111" Click="Button_UserChoice"/>
-        <Button Content="Categories" HorizontalAlignment="Left" Height="46" Margin="563,1,0,0" VerticalAlignment="Top" Width="111" Click="Button_Categories"/>
-        <Button Content="Outgoings" HorizontalAlignment="Left" Height="46" Margin="447,1,0,0" VerticalAlignment="Top" Width="111" Click="Button_Outgoings"/>
-
+        <Button x:Name="incomesButton" Content="Incomes" HorizontalAlignment="Left" Height="46" Margin="341,2,0,0" VerticalAlignment="Top" Width="111" Click="Button_Incomes" BorderBrush="{x:Null}" Foreground="#FF795591" FontSize="20" FontFamily="Bahnschrift Condensed" Background="#FF31154F" FontWeight="Bold"/>
+        <Button Content="Users" HorizontalAlignment="Left" Height="46" Margin="674,2,0,0" VerticalAlignment="Top" Width="111" Click="Button_UserChoice" BorderBrush="{x:Null}" Foreground="#FF795591" FontSize="20" FontFamily="Bahnschrift Condensed" Background="#FF31154F"/>
+        <Button Content="Categories" HorizontalAlignment="Left" Height="46" Margin="563,2,0,0" VerticalAlignment="Top" Width="111" Click="Button_Categories" BorderBrush="{x:Null}" Foreground="#FF795591" FontSize="20" FontFamily="Bahnschrift Condensed" Background="#FF31154F"/>
+        <Button Content="Outgoings" HorizontalAlignment="Left" Height="46" Margin="452,2,0,0" VerticalAlignment="Top" Width="111" Click="Button_Outgoings" BorderBrush="{x:Null}" Foreground="#FF795591" FontSize="20" FontFamily="Bahnschrift Condensed" Background="#FF31154F"/>
+        <TextBlock HorizontalAlignment="Left" Height="45" Margin="10,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" FontSize="36" Foreground="#FFEEEEEE" FontFamily="Leelawadee" FontWeight="Bold" FontStyle="Normal"><Run Text="Wall"/><Run Text="e"/><Run Text="t"/><Run Language="pl-pl" Text="A"/><Run Text="pp"/></TextBlock>
+        <Image HorizontalAlignment="Left" Height="44" Margin="203,3,0,0" VerticalAlignment="Top" Width="45" Source="/wallet.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="15.896"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
-
+    <Window.Resources>
+        <Button x:Key="incomesButton"/>
+    </Window.Resources>
 </Window>

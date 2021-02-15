@@ -73,32 +73,28 @@ namespace WalletAPP
             countOutgoings();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addOutgoing_Click(object sender, RoutedEventArgs e)
         {
-            string amount = outgoingFormValue.Text;
-            string category = "";
-            try
+            if (outgoingFormCategories.SelectedItem is not null)
             {
-                category = outgoingFormCategories.SelectedItem.ToString();
-            }
-            catch
-            {
-                return;
-            }
-            if (long.TryParse(amount, out long res) && !string.IsNullOrEmpty(category))
-            {
-                addCategory(res, category);
+                string amount = outgoingFormValue.Text;
+                string category = outgoingFormCategories.SelectedItem.ToString();
+                if (long.TryParse(amount, out long res) && !string.IsNullOrEmpty(category))
+                    addCategory(res, category);
             }
         }
 
         private void removeOutgoing_Click(object sender, RoutedEventArgs e)
         {
-            using var db = new Wallet();
-            long selected = long.Parse(OutgoingsList.SelectedItem.ToString().Split(':')[0]);
-            IQueryable<Outgoing> outgoingToRemove = db.Outgoings.Where(el => el.Id == selected);
-            db.Outgoings.RemoveRange(outgoingToRemove);
-            int result = db.SaveChanges();
-            updateOutgoingsList();
+            if (OutgoingsList.SelectedItem is not null)
+            {
+                using var db = new Wallet();
+                long selected = long.Parse(OutgoingsList.SelectedItem.ToString().Split(':')[0]);
+                IQueryable<Outgoing> outgoingToRemove = db.Outgoings.Where(el => el.Id == selected);
+                db.Outgoings.RemoveRange(outgoingToRemove);
+                int result = db.SaveChanges();
+                updateOutgoingsList();
+            }
         }
     }
 }

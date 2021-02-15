@@ -23,16 +23,18 @@ namespace WalletAPP
                 userList.Items.Add($"{user.Id}-{user.Nickname}");
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void addUserButton(object sender, RoutedEventArgs e)
         {
-            using var db = new Wallet();
-
-            var newUser = new User();
-            newUser.Nickname = new_user_nick.Text;
-            newUser.Money = 0;
-            db.Users.Add(newUser);
-            int succes = db.SaveChanges();
-            UpdateUserList();
+            if(newUserNick.Text != "")
+            {
+                using var db = new Wallet();
+                var newUser = new User();
+                newUser.Nickname = newUserNick.Text;
+                newUser.Money = 0;
+                db.Users.Add(newUser);
+                int succes = db.SaveChanges();
+                UpdateUserList();
+            }
         }
         public UserChoice()
         {
@@ -42,12 +44,15 @@ namespace WalletAPP
 
         private void removeUser_Click(object sender, RoutedEventArgs e)
         {
-            using var db = new Wallet();
-            string selected = userList.SelectedItem.ToString().Split('-')[1];
-            IQueryable<User> userToRemove = db.Users.Where(el => el.Nickname == selected);
-            db.Users.RemoveRange(userToRemove);
-            int result = db.SaveChanges();
-            UpdateUserList();
+            if (userList.SelectedItem is not null)
+            {
+                using var db = new Wallet();
+                string selected = userList.SelectedItem.ToString().Split('-')[1];
+                IQueryable<User> userToRemove = db.Users.Where(el => el.Nickname == selected);
+                db.Users.RemoveRange(userToRemove);
+                int result = db.SaveChanges();
+                UpdateUserList();
+            }
         }
 
         private void userList_SelectionChanged(object sender, SelectionChangedEventArgs e)

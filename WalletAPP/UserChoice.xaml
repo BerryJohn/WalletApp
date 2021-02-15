@@ -19,10 +19,10 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="btn_add_user" Content="Button" HorizontalAlignment="Left" Margin="536,225,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
+        <Button x:Name="addUser" Content="Add user" HorizontalAlignment="Left" Margin="536,225,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="addUserButton"/>
         <ListBox x:Name="userList" Margin="10,49,571,190" SelectionChanged="userList_SelectionChanged" Background="LightGray" Height="140" MaxHeight="140"/>
         <Label x:Name="currUser" Content="" Margin="10,229,532,107" FontSize="30"/>
-        <TextBox x:Name="new_user_nick" Text="TextBox" TextWrapping="Wrap" Margin="536,125,108,190"/>
+        <TextBox x:Name="newUserNick" TextWrapping="Wrap" Margin="536,120,108,196"/>
         <Button x:Name="removeUser" Content="Remove User" Margin="62,208,624,129" Click="removeUser_Click"/>
     </Grid>
 </Page>

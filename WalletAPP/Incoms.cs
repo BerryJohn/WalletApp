@@ -69,31 +69,28 @@ namespace WalletAPP
             updateIncomsList();
             return succes;
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void addIncome_Click(object sender, RoutedEventArgs e)
         {
-            string amount = incomeFormValue.Text;
-            string category = "";
-            try 
+            if(incomeFormCategories.SelectedItem is not null)
             {
-                category = incomeFormCategories.SelectedItem.ToString();
-            }
-            catch
-            {
-                return;
-            }
-            if (long.TryParse(amount,out long res) && !string.IsNullOrEmpty(category))
-            {
-                addCategory(res, category);
+                string amount = incomeFormValue.Text;
+                string category = incomeFormCategories.SelectedItem.ToString();
+                if (long.TryParse(amount, out long res) && !string.IsNullOrEmpty(category))
+                    addCategory(res, category);
             }
         }
         private void removeIncome_Click(object sender, RoutedEventArgs e)
         {
-            using var db = new Wallet();
-            long selected = long.Parse(IncomeList.SelectedItem.ToString().Split(':')[0]);
-            IQueryable<Incom> incomeToRemove = db.Incoms.Where(el => el.Id == selected);
-            db.Incoms.RemoveRange(incomeToRemove);
-            int result = db.SaveChanges();
-            updateIncomsList();
+            if (IncomeList.SelectedItem is not null)
+            {
+                using var db = new Wallet();
+                long selected = long.Parse(IncomeList.SelectedItem.ToString().Split(':')[0]);
+                IQueryable<Incom> incomeToRemove = db.Incoms.Where(el => el.Id == selected);
+                db.Incoms.RemoveRange(incomeToRemove);
+                int result = db.SaveChanges();
+                updateIncomsList();
+            }
+
         }
     }
 }

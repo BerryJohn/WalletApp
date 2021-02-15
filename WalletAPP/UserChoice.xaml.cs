@@ -14,6 +14,36 @@ namespace WalletAPP
     /// </summary>
     public partial class UserChoice : Page
     {
+        public UserChoice()
+        {
+            InitializeComponent();
+            UpdateUserList();
+        }
+
+        public void UpdateBalance()
+        {
+            if(!string.IsNullOrEmpty(GLOBALS.CurrentUserName))
+            {
+                long totalOutgoing = 0;
+                long totalIncome = 0;
+                using var db = new Wallet();
+
+                IQueryable<Outgoing> outgoin = db.Outgoings.Where(el => el.UserId == GLOBALS.CurrentUserID);
+                foreach (var el in outgoin)
+                    totalOutgoing += el.Outcome;
+                IQueryable<Incom> Incoms = db.Incoms.Where(el => el.UserId == GLOBALS.CurrentUserID);
+                foreach (var el in Incoms)
+                    totalIncome += el.Income;
+
+                long balance = totalIncome - totalOutgoing;
+                userBalance.Content = $"{balance}PLN";
+            }
+            else
+            {
+                userBalance.Content = $"";
+            }
+        }
+
         private void UpdateUserList()
         {
             userList.Items.Clear();
@@ -27,7 +57,7 @@ namespace WalletAPP
         {
             try
             {
-                if(newUserNick.Text.Trim() != "")
+                if (newUserNick.Text.Trim() != "")
                 {
                     using var db = new Wallet();
                     var newUser = new User();
@@ -40,19 +70,14 @@ namespace WalletAPP
                     UpdateUserList();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                if(ex is Microsoft.EntityFrameworkCore.DbUpdateException)
+                if (ex is Microsoft.EntityFrameworkCore.DbUpdateException)
                 {
                     userErrorLabel.Content = "Name is already used!";
                 }
             }
 
-        }
-        public UserChoice()
-        {
-            InitializeComponent();
-            UpdateUserList();
         }
 
         private void removeUser_Click(object sender, RoutedEventArgs e)
@@ -65,26 +90,27 @@ namespace WalletAPP
                 db.Users.RemoveRange(userToRemove);
                 int result = db.SaveChanges();
                 UpdateUserList();
+                UpdateBalance();
             }
         }
 
         private void userList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if(userList.SelectedItem is not null)
+            if (userList.SelectedItem is not null)
             {
-            string[] curItem = userList.SelectedItem.ToString().Split('-');
-            currUser.Content = curItem[1];
-            GLOBALS.CurrentUserID = long.Parse(curItem[0]);
-            GLOBALS.CurrentUserName = curItem[1];
+                string[] curItem = userList.SelectedItem.ToString().Split('-');
+                currUser.Content = curItem[1];
+                GLOBALS.CurrentUserID = long.Parse(curItem[0]);
+                GLOBALS.CurrentUserName = curItem[1];
+                UpdateBalance();
             }
             else
             {
-            currUser.Content = "";
-            GLOBALS.CurrentUserID = 0;
-            GLOBALS.CurrentUserName = "";
+                currUser.Content = "";
+                GLOBALS.CurrentUserID = 0;
+                GLOBALS.CurrentUserName = "";
             }
-
         }
     }
 }

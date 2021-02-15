@@ -10,6 +10,14 @@ namespace WalletAPP
 {
     public partial class Outgoings : Page
     {
+        public Outgoings()
+        {
+            InitializeComponent();
+            updateOutgoingsList();
+            updateCategoryList();
+            countOutgoings();
+        }
+
         private void countOutgoings()
         {
             long totalOutgoing = 0;
@@ -17,9 +25,9 @@ namespace WalletAPP
             IQueryable<Outgoing> outgoin = db.Outgoings.Where(el => el.UserId == GLOBALS.CurrentUserID);
             foreach (var el in outgoin)
                 totalOutgoing += el.Outcome;
-
             totalOutgoingLabel.Content = $"-{totalOutgoing}PLN";
         }
+
         private string findCategory(long id)
         {
             using var db = new Wallet();
@@ -47,7 +55,6 @@ namespace WalletAPP
             using var db = new Wallet();
             var newOutgoing = new Outgoing();
             newOutgoing.Outcome = amount;
-#warning Zmień literówke w gazie i tutaj ( OUTCOME -> outgoing)
             newOutgoing.CategoryId = findCategoryID(category);
             newOutgoing.UserId = GLOBALS.CurrentUserID;
             db.Outgoings.Add(newOutgoing);
@@ -64,13 +71,6 @@ namespace WalletAPP
             IQueryable<OutgoingsCategory> categories = db.OutgoingsCategories;
             foreach (var category in categories)
                 outgoingFormCategories.Items.Add($"{category.Category}");
-        }
-        public Outgoings()
-        {
-            InitializeComponent();
-            updateOutgoingsList();
-            updateCategoryList();
-            countOutgoings();
         }
 
         private void addOutgoing_Click(object sender, RoutedEventArgs e)

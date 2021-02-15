@@ -14,11 +14,13 @@ namespace WalletAPP
         private Incoms _incomsPage = new Incoms();
         private UserChoice _userChoice = new UserChoice();
         private Categories _categories = new Categories();
+
         public MainWindow()
         {
             InitializeComponent();
             PageNavigation.Navigate(_userChoice);
         }
+
         private void Button_Incomes(object sender, RoutedEventArgs e)
         {
             if(GLOBALS.CurrentUserName != "")
@@ -40,6 +42,7 @@ namespace WalletAPP
         private void Button_UserChoice(object sender, RoutedEventArgs e)
         {
             PageNavigation.Navigate(_userChoice);
+            _userChoice.UpdateBalance();
         }
         private void Button_Categories(object sender, RoutedEventArgs e)
         {

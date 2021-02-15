@@ -10,48 +10,34 @@ namespace WalletAPP
 {
     public partial class MainWindow : Window
     {
-        private void UpdateUserList()
-        {
-            lista.Items.Clear();
-            using var db = new Wallet();
-            IQueryable<User> users = db.Users;
-            foreach (var user in users)
-                lista.Items.Add($"{user.Id} - {user.Nickname} - {user.Money}PLN");
-        }
+        private Incoms _incomsPage = new Incoms();
+        private UserChoice _userChoice = new UserChoice();
+        private Outgoings _outgoings = new Outgoings();
         public MainWindow()
         {
             InitializeComponent();
-            UpdateUserList();
+            PageNavigation.Navigate(_userChoice);
+        }
+        private void Button_Incomes(object sender, RoutedEventArgs e)
+        {
+            _incomsPage = new Incoms();
+            PageNavigation.Navigate(_incomsPage);
         }
 
-        private void lista_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void Button_Outgoings(object sender, RoutedEventArgs e)
         {
-            string[] curItem = lista.SelectedItem.ToString().Split('-');
-            currUser.Content = curItem[1];
-            GLOBALS.CurrentUserID = long.Parse(curItem[0]);
-            GLOBALS.CurrentUserName = curItem[1];
+            _outgoings = new Outgoings();
+            PageNavigation.Navigate(_outgoings);
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void Button_UserChoice(object sender, RoutedEventArgs e)
         {
-            using var db = new Wallet();
-            
-            var newUser = new User();
-            newUser.Nickname = new_user_nick.Text;
-            newUser.Money = 0;
-            db.Users.Add(newUser);
-            int succes = db.SaveChanges();
-            UpdateUserList();
+            PageNavigation.Navigate(_userChoice);
+        }
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //PageNavigation.Navigate(_incomsPage);  TBA
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Login.Content = new Incoms();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Login.Content = new Outgoings();
-        }
     }
 }

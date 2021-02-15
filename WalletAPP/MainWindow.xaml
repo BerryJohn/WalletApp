@@ -8,21 +8,12 @@
         ResizeMode="NoResize"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="tekst" Content="Select user" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="45" Width="113" RenderTransformOrigin="0.5,0.5" FontSize="20">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.267"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Button x:Name="btn_add_user" Content="Button" HorizontalAlignment="Left" Margin="536,118,0,0" VerticalAlignment="Top" Height="96" Width="172" Click="btn_Click"/>
-        <ListBox x:Name="lista" Margin="10,49,587,248" SelectionChanged="lista_SelectionChanged" Background="LightGray"/>
-        <Label x:Name="currUser" Content="Label" Margin="10,229,587,71" FontSize="30"/>
-        <TextBox x:Name="new_user_nick" Text="TextBox" TextWrapping="Wrap" Margin="536,49,108,336"/>
-        <Button Content="Incoms" HorizontalAlignment="Left" Height="80" Margin="614,318,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click" MaxWidth="150" MaxHeight="80"/>
-        <Button Content="Outgoings" Margin="451,318,199,36" Click="Button_Click_1" Height="80" MaxHeight="80" Width="150" MaxWidth="150"/>
+        <Frame Name="PageNavigation" Grid.Column="0" NavigationUIVisibility="Hidden" Margin="0,51,0,0" Height="380" MaxHeight="380"/>
+        <Button Content="Incomes" HorizontalAlignment="Left" Height="46" Margin="289,0,0,0" VerticalAlignment="Top" Width="111" Click="Button_Incomes"/>
+        <Button Content="Users" HorizontalAlignment="Left" Height="46" Margin="637,0,0,0" VerticalAlignment="Top" Width="111" Click="Button_UserChoice"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="46" Margin="521,0,0,0" VerticalAlignment="Top" Width="111" Click="Button_Click_3"/>
+        <Button Content="Outgoings" HorizontalAlignment="Left" Height="46" Margin="405,0,0,0" VerticalAlignment="Top" Width="111" Click="Button_Outgoings"/>
+
     </Grid>
+
 </Window>

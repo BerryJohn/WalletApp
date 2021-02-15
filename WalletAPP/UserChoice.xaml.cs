@@ -52,17 +52,21 @@ namespace WalletAPP
 
         private void userList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
-            {
-                string[] curItem = userList.SelectedItem.ToString().Split('-');
-                currUser.Content = curItem[1];
-                GLOBALS.CurrentUserID = long.Parse(curItem[0]);
-                GLOBALS.CurrentUserName = curItem[1];
-            }
-            catch
-            {
 
+            if(userList.SelectedItem is not null)
+            {
+            string[] curItem = userList.SelectedItem.ToString().Split('-');
+            currUser.Content = curItem[1];
+            GLOBALS.CurrentUserID = long.Parse(curItem[0]);
+            GLOBALS.CurrentUserName = curItem[1];
             }
+            else
+            {
+            currUser.Content = "";
+            GLOBALS.CurrentUserID = 0;
+            GLOBALS.CurrentUserName = "";
+            }
+
         }
     }
 }

@@ -9,12 +9,11 @@
       Title="Page1">
 
     <Grid Background="#FFFF7373" Height="380">
-        <Button Content="Choose user" Margin="649,371,10,10" Click="Button_Click"/>
         <Label Content="Your incoms:" Margin="10,10,639,328" FontSize="22"/>
         <ListBox x:Name="IncomeList" Margin="10,57,430,133" Width="360" MaxWidth="360" Height="260" MaxHeight="260"/>
         <Label Content="Add income:&#xD;&#xA;" HorizontalAlignment="Left" Height="44" Margin="477,10,0,0" VerticalAlignment="Top" Width="193" FontSize="22"/>
         <TextBox x:Name="incomeFormValue" HorizontalAlignment="Left" Margin="478,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="35" FontSize="22"/>
-        <ListBox x:Name="incomeFormCategories" HorizontalAlignment="Left" Height="140" Margin="477,107,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="incomeFormCategories_SelectionChanged" ScrollViewer.CanContentScroll="True" MaxHeight="150"/>
+        <ListBox x:Name="incomeFormCategories" HorizontalAlignment="Left" Height="140" Margin="477,107,0,0" VerticalAlignment="Top" Width="243" ScrollViewer.CanContentScroll="True" MaxHeight="150"/>
         <Button Content="Add money" Margin="518,263,120,86" FontSize="22" Click="Button_Click_1"/>
         <Label Content="Total income:" HorizontalAlignment="Left" Height="33" Margin="10,277,0,0" VerticalAlignment="Top" Width="121" FontSize="18"/>
         <Label x:Name="totalIncomeLabel" Content="" HorizontalAlignment="Left" Height="57" Margin="10,308,0,0" VerticalAlignment="Top" Width="225" FontSize="30" Background="Transparent" Foreground="#FF548D33"/>

@@ -11,12 +11,12 @@
     <Grid Height="380" MaxHeight="380" Background="#FFCB3FA5">
         <ListBox x:Name="incomeCategoryList" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
         <ListBox x:Name="outgoingCategoryList" HorizontalAlignment="Left" Height="100" Margin="10,200,0,0" VerticalAlignment="Top" Width="307"/>
-        <Button Content="Remove" Margin="102,115,574,222" />
-        <Button Content="Remove" Margin="102,305,574,32"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="527,39,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
-        <RadioButton Content="Income" Margin="494,96,179,249" FontSize="18" GroupName="category"/>
-        <RadioButton Content="Outgoing" Margin="634,95,38,252" FontSize="18" GroupName="category"/>
-        <Button Content="Add" HorizontalAlignment="Left" Height="37" Margin="582,133,0,0" VerticalAlignment="Top" Width="102"/>
+        <Button x:Name="removeIncomeCategory" Content="Remove" Margin="102,115,574,222" Click="removeIncomeCategory_Click" />
+        <Button x:Name="removeOutgoingCategory" Content="Remove" Margin="102,305,574,32" Click="removeOutgoingCategory_Click" />
+         <TextBox x:Name="newCategoryName" HorizontalAlignment="Left" Height="42" Margin="527,39,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
+        <RadioButton x:Name="incomeRadio" Content="Income" Margin="494,96,179,249" FontSize="18" GroupName="category"/>
+        <RadioButton x:Name="outgoingRadio" Content="Outgoing" Margin="634,95,38,252" FontSize="18" GroupName="category"/>
+        <Button x:Name="addCategory" Content="Add" HorizontalAlignment="Left" Height="37" Margin="582,133,0,0" VerticalAlignment="Top" Width="102" Click="addCategory_Click"/>
 
     </Grid>
 </Page>

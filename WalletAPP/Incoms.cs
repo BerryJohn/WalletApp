@@ -51,16 +51,6 @@ namespace WalletAPP
             countIncomes();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
-        private void incomeFormCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private long findCategoryID(string category)
         {
             using var db = new Wallet();

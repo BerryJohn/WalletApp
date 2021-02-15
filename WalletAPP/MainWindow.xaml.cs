@@ -21,14 +21,20 @@ namespace WalletAPP
         }
         private void Button_Incomes(object sender, RoutedEventArgs e)
         {
-            _incomsPage = new Incoms();
-            PageNavigation.Navigate(_incomsPage);
+            if(GLOBALS.CurrentUserName != "")
+            {
+                _incomsPage = new Incoms();
+                PageNavigation.Navigate(_incomsPage);
+            }
         }
 
         private void Button_Outgoings(object sender, RoutedEventArgs e)
         {
-            _outgoings = new Outgoings();
-            PageNavigation.Navigate(_outgoings);
+            if (GLOBALS.CurrentUserName != "")
+            {
+                _outgoings = new Outgoings();
+                PageNavigation.Navigate(_outgoings);
+            }
         }
 
         private void Button_UserChoice(object sender, RoutedEventArgs e)

@@ -8,7 +8,7 @@ namespace WalletGlobal
 {
     public static class GLOBALS
     {
-        public static string CurrentUserName { get; set; }
+        public static string CurrentUserName { get; set; } = "";
         public static long CurrentUserID { get; set; }
     }
 }

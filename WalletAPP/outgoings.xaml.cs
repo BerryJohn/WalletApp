@@ -81,6 +81,7 @@ namespace WalletAPP
                 string category = outgoingFormCategories.SelectedItem.ToString();
                 if (long.TryParse(amount, out long res) && !string.IsNullOrEmpty(category))
                     addCategory(res, category);
+                outgoingFormValue.Text = "";
             }
         }
 

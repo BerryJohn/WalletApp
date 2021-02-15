@@ -75,6 +75,7 @@ namespace WalletAPP
                     if (!string.IsNullOrEmpty(userErrorLabel.Content.ToString()))
                         userErrorLabel.Content = "";
                     UpdateUserList();
+                    newUserNick.Text = "";
                 }
             }
             catch (Exception ex)

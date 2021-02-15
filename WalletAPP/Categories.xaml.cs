@@ -113,7 +113,7 @@ namespace WalletAPP
                 addIncomeCat(categoryName);
             else if (outgoingRadio.IsChecked == true)
                 addOutgoingCat(categoryName);
-
+            newCategoryName.Text = "";
         }
     }
 }

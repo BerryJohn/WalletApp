@@ -77,6 +77,7 @@ namespace WalletAPP
                 string category = incomeFormCategories.SelectedItem.ToString();
                 if (long.TryParse(amount, out long res) && !string.IsNullOrEmpty(category))
                     addCategory(res, category);
+                incomeFormValue.Text = "";
             }
         }
         private void removeIncome_Click(object sender, RoutedEventArgs e)

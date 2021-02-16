@@ -10,10 +10,17 @@ using System;
 namespace WalletAPP
 {
     /// <summary>
-    /// Interaction logic for Categories.xaml
+    /// Logical interpretation for Categories page.
     /// </summary>
     public partial class Categories : Page
     {
+        public Categories()
+        {
+            InitializeComponent();
+            updateIncomeCategory();
+            updateOutgoingCategory();
+        }
+
         private void updateIncomeCategory()
         {
             incomeCategoryList.Items.Clear();
@@ -29,12 +36,6 @@ namespace WalletAPP
             IQueryable<OutgoingsCategory> category = db.OutgoingsCategories;
             foreach (var el in category)
                 outgoingCategoryList.Items.Add($"{el.Category}");
-        }
-        public Categories()
-        {
-            InitializeComponent();
-            updateIncomeCategory();
-            updateOutgoingCategory();
         }
 
         private void removeIncomeCategory_Click(object sender, RoutedEventArgs e)

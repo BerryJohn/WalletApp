@@ -8,6 +8,9 @@ using WalletGlobal;
 
 namespace WalletAPP
 {
+    /// <summary>
+    /// Logical interpretation for Outgoings Page
+    /// </summary>
     public partial class Outgoings : Page
     {
         public Outgoings()
@@ -41,7 +44,6 @@ namespace WalletAPP
             IQueryable<Outgoing> outgoin = db.Outgoings.Where(el => el.UserId == GLOBALS.CurrentUserID);
             foreach (var outgo in outgoin)
                 OutgoingsList.Items.Add($"{outgo.Id}: -{outgo.Outcome}PLN  Category: {findCategory(outgo.CategoryId)}");
-#warning Zmień literówke w gazie i tutaj ( OUTCOME -> outgoing)
             countOutgoings();
         }
         private long findCategoryID(string category)

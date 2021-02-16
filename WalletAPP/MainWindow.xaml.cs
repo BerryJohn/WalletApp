@@ -8,6 +8,9 @@ using WalletGlobal;
 
 namespace WalletAPP
 {
+    /// <summary>
+    /// Logical interpratation for main window of application
+    /// </summary>
     public partial class MainWindow : Window
     {
         private Outgoings _outgoings = new Outgoings();

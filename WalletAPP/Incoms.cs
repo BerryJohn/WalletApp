@@ -7,9 +7,20 @@ using Microsoft.EntityFrameworkCore;
 using WalletGlobal;
 
 namespace WalletAPP
-{
+{   
+    /// <summary>
+    /// Logical interpretation for Incomes page
+    /// </summary>
     public partial class Incoms : Page
     {
+        public Incoms()
+        {
+            InitializeComponent();
+            updateIncomsList();
+            updateCategoryList();
+            countIncomes();
+        }
+
         private void countIncomes()
         {
             long totalIncome = 0;
@@ -42,13 +53,6 @@ namespace WalletAPP
             IQueryable<IncomeCategory> categories = db.IncomeCategories;
             foreach (var category in categories)
                 incomeFormCategories.Items.Add($"{category.Category}"); 
-        }
-        public Incoms()
-        {
-            InitializeComponent();
-            updateIncomsList();
-            updateCategoryList();
-            countIncomes();
         }
 
         private long findCategoryID(string category)

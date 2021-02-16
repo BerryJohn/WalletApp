@@ -11,7 +11,7 @@ using System.Windows.Media;
 namespace WalletAPP
 {
     /// <summary>
-    /// Interaction logic for UserChoice.xaml
+    /// Logical interprattion for main  page of application - user choice
     /// </summary>
     public partial class UserChoice : Page
     {
@@ -21,6 +21,9 @@ namespace WalletAPP
             UpdateUserList();
         }
 
+        /// <summary>
+        /// Function responsible for updating balance for given user
+        /// </summary>
         public void UpdateBalance()
         {
             if(!string.IsNullOrEmpty(GLOBALS.CurrentUserName))
@@ -46,9 +49,7 @@ namespace WalletAPP
                 userBalance.Foreground = new System.Windows.Media.SolidColorBrush(color);
             }
             else
-            {
                 userBalance.Content = $"";
-            }
         }
 
         private void UpdateUserList()
@@ -81,9 +82,7 @@ namespace WalletAPP
             catch (Exception ex)
             {
                 if (ex is Microsoft.EntityFrameworkCore.DbUpdateException)
-                {
                     userErrorLabel.Content = "Name is already used!";
-                }
             }
 
         }
